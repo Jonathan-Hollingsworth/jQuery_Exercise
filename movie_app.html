@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="title" placeholder="Title of Movie">
+        <input type="number" name="" id="rating" min="0" max="10" placeholder="Rating 0-10">
+        <button type="submit">Submit Rating</button>
+    </form>
+    <section></section>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+    <script>
+        $('form').css('background-color', '#5f5f5f')
+        $('form').css('height', '28px')
+        $('form').on('submit', function(evt){
+            evt.preventDefault()
+            const $newRating = $('<div>')
+            $newRating.append(`<p>${$('#title').val()}</p><p>${$('#rating').val()}/10</p>`)
+            $newRating.append('<button>Delete</button><hr>')
+            $('section').append($newRating)
+        })
+        $('section').on('click','button',function(){
+            $(this).parent().remove()
+        })
+    </script>
+</body>
+</html>
